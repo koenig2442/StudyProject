@@ -81,6 +81,62 @@ public class practice : MonoBehaviour
 
         string condition = isBadCondition ? "나쁨" : "좋음";
         Debug.Log("용사의 상태가 나쁩니까?" + condition);
+
+        //4.키워드
+        //int float string new List
+
+        //5.조건문
+        if(condition == "나쁨")
+        {
+            Debug.Log("플레이어 상태가 나쁘니 아이템을 사용하세요.");
+        }
+
+        else
+        {
+            Debug.Log("플레이어 상태가 좋습니다.");
+        }
+
+        if(isBadCondition && items[0] == "마나물약30")
+        {
+            items.RemoveAt(0);
+            mana += 30;
+            Debug.Log("마나포션30을 사용하였습니다.");
+        }
+        switch (monsters[0]) 
+        {
+            case "슬라임" :
+                Debug.Log("소형 몬스터가 출현!");
+                break;
+            case "악마":
+                Debug.Log("중형몬스터가 출현!");
+                break ;
+            case "골렘":
+                Debug.Log("대형 몬스터가 출현!");
+                break;
+
+        }
+
+        //6. 반복문
+        while (health > 0)
+        {
+                health--;
+            if (health > 0)
+                Debug.Log("독 데미지를 입었습니다. " + health);
+            else
+                Debug.Log("사망하였습니다.");
+
+            if (health == 10)
+            {
+                Debug.Log("해독제를 사용합니다");
+                break;
+            }
+        }
+
+        
+
+
+
+
     }
 
     // Update is called once per frame
