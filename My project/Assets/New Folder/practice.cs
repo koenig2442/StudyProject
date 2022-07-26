@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class practice : MonoBehaviour
 {
+    int health = 30;
     // Start is called before the first frame update
     void Start()
     {
@@ -73,7 +74,7 @@ public class practice : MonoBehaviour
         bool isEndTutoral = level > 10;
         Debug.Log("튜토리얼이 끝난 용사입니까?" + isEndTutoral);
 
-        int health = 30;
+        //int health = 30;
         int mana = 25;
         //bool isBadCondition = health <= 50 && mana <= 20;
         bool isBadCondition = health <= 50 || mana <= 20;
@@ -132,9 +133,55 @@ public class practice : MonoBehaviour
             }
         }
 
-        
+        for(int count=0; count<10; count++)
+        {
+            health++;
+            Debug.Log("붕대 치료중..." + health);
+        }
+        for(int index = 0; index < monsters.Length; index++)
+        {
+            //Debug.Log ("이 지역에 있는 몬스터 : " + monsters[index]);
+        }
+        foreach (string monster in monsters)
+        {
+            Debug.Log("이 지역에 있는 몬스터 : " + monster);
+        }
+        //7. 함수 (메소드)
 
+        for(int index = 0; index < monsters.Length; index++)
+        {
+            Debug.Log("용사는 " + monsters[index] + "에게 " + Battle(monstersLevel[index]));
+        }
 
+        Heal();
+        // 8. 클래스
+
+        Player player = new Player();
+        player.id = 0;
+        player.name = "나법사";
+        player.title = "현명한";
+        player.strength = 2.4f;
+        player.weapon = "나무지팡이";
+        Debug.Log(player.Talk());
+        Debug.Log(player.HasWeapon());
+
+        player.LevelUp();
+        Debug.Log(player.name + "의 레벨은" + player.level + "입니다.");
+
+        void Heal()
+        {
+            health += 10;
+            Debug.Log("힐을 받았습니다. " + health);
+        }
+        string Battle(int monsterLevel)
+        {
+            string result;
+            if (level >= monsterLevel)
+                result = "이겼습니다.";
+            else
+                result = "졌습니다.";
+            return result;
+        }
 
 
     }
