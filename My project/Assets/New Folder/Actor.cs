@@ -5,7 +5,7 @@ using UnityEngine;
 public class Actor : MonoBehaviour
 {
     public int id;
-    public string name;
+    public string playername;
     public string title;
     public string weapon;
     public  float strength;
