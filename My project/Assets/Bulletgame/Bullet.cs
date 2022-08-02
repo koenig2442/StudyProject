@@ -15,13 +15,13 @@ public class Bullet : MonoBehaviour
         bulletRigidbody.velocity = transform.forward * speed;
 
         Destroy(gameObject, 3f);
-                
+
     }
 
     // Update is called once per frame
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if (other.tag == "Player")
         {
             PlayerController playerController = other.GetComponent<PlayerController>();
 
@@ -31,3 +31,4 @@ public class Bullet : MonoBehaviour
             }
         }
     }
+}
